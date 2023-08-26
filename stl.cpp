@@ -28,7 +28,7 @@ void explainPair() {
 // scenarios when you don't know the size It's recommend to use vector
 // vector is implemented using singly linked list
 void explainVector() {
-	cout<<"vector explained"<<endl;
+	cout<<"\nvector explained"<<endl;
 	vector<int> v;
 
 	v.push_back(1);
@@ -79,7 +79,7 @@ void explainVector() {
 void explainList() {
 	// list are implement using doubly linked list 
 	// diff b/w vector and list is insertion in front take O(1) in list while O(n) in vector
-	cout<<"Lists"<<endl;
+	cout<<"\nLists"<<endl;
 	list<int> ls;
 
 	ls.push_back(2);
@@ -95,7 +95,7 @@ void explainDequeue() {
 }
 
 void explainStack() {
-	cout<<"Stack"<<endl;
+	cout<<"\nStack"<<endl;
 	stack<int> s;
 
 	s.push(2);
@@ -117,7 +117,7 @@ void explainStack() {
 void explianPriorityQueue() {
 	// always make sure to store element in sorted order 
 	// by default it will be max heap
-	cout<<"Prority Queue"<<endl;
+	cout<<"\nPrority Queue"<<endl;
 
 	priority_queue<int> pq;  // max heap
 
@@ -139,7 +139,7 @@ void explianPriorityQueue() {
 }
 
 void explainSets() {
-	cout<<"Set"<<endl;
+	cout<<"\nSet"<<endl;
 	set<int>st;
 	st.insert(1);
 	st.insert(2);
@@ -155,6 +155,36 @@ void explainMultiSets() {
 
 void explainUnorderedSets() {
 	// sets which store unique elements but in sorted order
+}
+
+
+// Refer for difference in maps vs unordered maps https://www.geeksforgeeks.org/map-vs-unordered_map-c/ 
+
+// Use std::unordered_map when 
+// You need to keep count of some data (Example – strings) and no ordering is required.
+// You need single element access i.e. no traversal.
+void explainUnorderedMaps() {
+  cout<<"\nUnordered Maps"<<endl;
+  
+  // an unordered_map is like a data structure of dictionary type with a key and value associated to it
+  // Declaring umap to be of 
+  // <string, int> type key 
+  // will be of STRING type 
+  // and mapped VALUE will
+  // be of int type
+  unordered_map<string, int> umap;
+  
+  // inserting values by using [] operator
+  umap["comment"] = 10;
+  umap["views"] = 20;
+  umap["likes"] = 30;
+  
+  // Traversing an unordered map
+  for (auto x : umap)
+    cout << x.first << " " << 
+            x.second << endl;
+
+  cout<<endl;
 }
 
 // Algorithms
@@ -189,8 +219,8 @@ void allAlgorithms() {
 }
 
 bool comp(pair<int, int> p1, pair<int, int> p2) {
-	if p1.second >= p2.second {
-		if p1.second == p2.second {
+	if (p1.second >= p2.second) {
+		if (p1.second == p2.second) {
 			return p1.first > p2.first;
 		}
 		return true;
@@ -206,6 +236,7 @@ int main(){
 	explianPriorityQueue();
 	explainList();
 	explainStack();
+	explainUnorderedMaps();
 	allAlgorithms();
 	return 0;
 }
