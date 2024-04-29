@@ -216,6 +216,32 @@ void allAlgorithms() {
 	// suppose you have pair<int,int> and want them sorted in increasing order of second element
 	// but if second element of pairs are same then sort them in decreasing order of first element
 
+
+	// Count the number of set bits a number
+        __builtin_popcount(n);  // returns the total number of set bits in an interger n
+
+	// next and previious permutation of the given number of an array
+        int arr[] = { 1, 2, 3 };
+ 
+    	sort(arr, arr + 3);
+ 
+    	cout << "The 3! possible permutations with 3 elements:\n";
+        do {
+	  cout << arr[0] << " " << arr[1] << " " << arr[2] << "\n";
+        } while (next_permutation(arr, arr + 3));
+
+	cout << "After loop: " << arr[0] << ' ' << arr[1] << ' ' << arr[2] << '\n';
+
+	sort(arr, arr + 3);
+	reverse(arr, arr + 3);
+	 
+	cout << "The 3! possible permutations with 3 elements:\n";
+	do {
+	  cout << arr[0] << " " << arr[1] << " " << arr[2] << "\n";
+	} while (prev_permutation(arr, arr + 3));
+	 
+	cout << "After loop: " << arr[0] << ' ' << arr[1] << ' ' << arr[2] << '\n';
+
 }
 
 bool comp(pair<int, int> p1, pair<int, int> p2) {
@@ -227,6 +253,8 @@ bool comp(pair<int, int> p1, pair<int, int> p2) {
 	} 
 	return false;
 }
+
+
 
 
 
