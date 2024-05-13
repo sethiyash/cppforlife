@@ -138,6 +138,43 @@ void explianPriorityQueue() {
 	cout<<"Top of min heap "<<minPQ.top()<<endl<<endl;
 }
 
+void explainDeque() {
+    // deque (short for "double-ended queue") is a part of the Standard Template Library (STL) that 
+    // allows you to efficiently insert and remove elements from both ends of the container.
+    deque<int> w;
+
+    // Insert elements at the back
+    w.push_back(10);
+    w.push_back(20);
+
+    // Insert elements at the front
+    w.push_front(5);
+    w.push_front(15);
+
+    // Display elements
+    cout << "Elements of deque: ";
+    for (int num : w) {
+        cout << num << " ";
+    }
+    cout<<endl;
+
+    // Access elements
+    cout<<"Second element: "<<w[1]<<endl;
+
+    // Remove elements from the front and back
+    w.pop_front(); // Removes '15'
+    w.pop_back();  // Removes '20'
+
+    // Display elements after removals
+    cout << "Elements of deque after removals: ";
+    for (int num : w) {
+        cout << num << " ";
+    }
+    cout<<endl;
+
+    // Practise Question:: https://leetcode.com/problems/sliding-window-maximum/description/
+}
+
 void explainSets() {
 	cout<<"\nSet"<<endl;
 	set<int>st;
@@ -150,7 +187,46 @@ void explainSets() {
 }
 
 void explainMultiSets() {
-	// sets which are sorted but not unique will store multiple occurances of same element
+	// sets which are sorted and stores duplicate as well
+	// It internally uses Red Black Tree (self balanced binary search tree)
+	// complexity to serach, insert, delete is O(logn)
+ 	multiset<int> w;
+
+	 
+	 // Insert elements
+    	w.insert(10);
+    	w.insert(5);
+    	w.insert(15);
+	w.insert(10); // Duplicate element
+
+	// Display elements
+	cout << "Elements of multiset: ";
+        for (int num : w) {
+	  cout << num << " ";
+        }
+        cout<<endl;
+
+        // Count of a specific element
+        int count = w.count(10);
+        cout << "Number of elements with value 10: " << count << std::endl;
+
+	// Erasing an element
+	
+	w.erase(*w.find(10)) // this will just erase the first occurance of 10
+
+	int count = w.count(10);
+	cout << "Number of elements with value 10: " << count << endl;
+
+	w.erase(10); // Erases all instances of '10'
+
+	cout<<"Max Element"<<w.rbegin() // return the maximum element as the rightmost element is the maximum element
+
+        // Display elements after erasure
+        cout << "Elements of multiset after erasing 10: ";
+        for (int num : w) {
+	  cout << num << " ";
+        }
+        cout << endl;
 }
 
 void explainUnorderedSets() {
@@ -262,8 +338,10 @@ int main(){
 	explainPair();
 	explainVector();
 	explianPriorityQueue();
+	explainDeque();
 	explainList();
 	explainStack();
+	explainMultiSets();
 	explainUnorderedMaps();
 	allAlgorithms();
 	return 0;
